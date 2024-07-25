@@ -10,7 +10,7 @@
 <% if user_signed_in? && current_user.id == calendar.user_id %>
   <%= link_to '編集', "/calendars/#{calendar.id}/edit", class: 'calendar-edit-btn', method: :get %>
   <%= button_to '削除', "/calendars/#{calendar.id}", class: 'calendar-delete', method: :delete %>
-  <%= link_to '詳細', "/calendars/#{calendar.id}", class: 'calendar-show', method: :get %>
+  <%= link_to '詳細', "/calendars/#{calendar.id}", class: 'calendar-show-btn', method: :get %>
 <% end %>
       </div>
   </div>

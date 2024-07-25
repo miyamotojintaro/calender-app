@@ -1,0 +1,25 @@
+<div class="toppage">
+<div class="row">
+<div class="calendar-top">
+<%= month_calendar events: @calendars do |date, calendars| %>
+  <%= date.day %>
+
+  <% calendars.each do |calendar| %>
+  <div class="calender-btn">
+    <div class=calendar-btn-list>
+<% if user_signed_in? && current_user.id == calendar.user_id %>
+  <%= link_to '編集', "/calendars/#{calendar.id}/edit", class: 'calendar-edit-btn', method: :get %>
+  <%= button_to '削除', "/calendars/#{calendar.id}", class: 'calendar-delete', method: :delete %>
+  <%= link_to '詳細', "/calendars/#{calendar.id}", class: 'calendar-show', method: :get %>
+<% end %>
+      </div>
+  </div>
+  <% if user_signed_in? && current_user.id == calendar.user_id %>
+    <div>
+      <%= link_to calendar.title, calendar, class: 'calendar-top-title' %>
+    </div>
+  <% end %>
+  <% end %>
+<% end %>
+</div>
+</div>

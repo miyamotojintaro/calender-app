@@ -1,0 +1,25 @@
+<div class="calendar-post">
+  <h2 class="calendar-post-logo">予定の追加</h2>
+  <div class="calendar-post-layout">
+    <%= form_with(model: @calendar, local: true) do |form| %>
+
+      <div class="calendar-time">
+        <div class="calendar-time-title">時間</div>
+        <div class="calendar-time-tag">
+          <%= form.datetime_select :start_time %>
+        </div>
+      </div>
+
+      <div class="calendar-form">
+        <div class="calendar-form-title">予定の内容</div>
+        <div class="calendar-form-tag">
+        <%= form.text_field :title %>
+        </div>
+      </div>
+
+      <div class="calendar-post-submit">
+        <%= form.submit :完了 %>
+      </div>
+    <% end %>
+  </div>
+</div>

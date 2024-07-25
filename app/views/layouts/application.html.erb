@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CalenderApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p id="notice"><%= notice %></p>
+    <header class="calendar-header">
+      <div class="header">
+        <div class="header-left"><a href="/"><span class=header-logo>Calendar</span></a></div>
+        <% if user_signed_in? %>
+          <div class="header-right">
+            <span class='header-menu'><%= current_user.nickname %></span>
+            <%= link_to "ログアウト", destroy_user_session_path, class: 'header-menu', method: :get %>
+            <%= link_to '投稿する', new_calendar_path(@calendar), class: 'header-menu' %>
+          </div>
+        <% else %>
+          <div class="header-right">
+            <%= link_to "ログイン", new_user_session_path, class: 'header-menu' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'header-menu' %>
+          </div>
+        <% end %>
+      </div>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>

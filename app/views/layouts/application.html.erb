@@ -18,9 +18,10 @@
         <div class="header-left"><a href="/"><span class=header-logo>Calendar</span></a></div>
         <% if user_signed_in? %>
           <div class="header-right">
+            <%# <img src="<%= "/user_images/#{user.image_name}""> %>
             <span class='header-menu'><%= current_user.nickname %></span>
             <%= link_to "ログアウト", destroy_user_session_path, class: 'header-menu', method: :get %>
-            <%= link_to '投稿する', new_calendar_path(@calendar), class: 'header-menu' %>
+            <%= link_to '予定を追加する', new_calendar_path(@calendar), class: 'header-menu' %>
           </div>
         <% else %>
           <div class="header-right">

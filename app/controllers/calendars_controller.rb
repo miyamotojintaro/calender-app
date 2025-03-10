@@ -4,6 +4,9 @@ class CalendarsController < ApplicationController
   def index
     @calendars = Calendar.all
     @calendar = Calendar.new
+    @user = User.new(
+    image_name: "default_user.jpeg"
+    )
   end
 
   def new
